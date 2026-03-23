@@ -1,6 +1,6 @@
 ---
 name: btech-cse-interview-prep
-description: A comprehensive interview preparation skill for BTech CSE students covering DSA, OS, OOPs, CN, DBMS, Aptitude, System Design and all core CS subjects. Use this skill whenever a student asks about technical interview questions, placement prep, coding problems, aptitude practice, CS fundamentals, or subject wise revision. Trigger this skill even if the student says things like "explain for interview", "placement prep", "what are common questions in", "practice problems on", "how to answer in interview", or any variation of exam or interview readiness for computer science topics.
+description: A comprehensive interview preparation and resume building skill for BTech CSE students covering DSA, OS, OOPs, CN, DBMS, Aptitude, System Design, core CS subjects, and placement-ready resumes. Use this skill whenever a student asks about technical interview questions, placement prep, coding problems, aptitude practice, CS fundamentals, subject wise revision, or resume/CV creation and improvement.
 ---
 
 # BTech CSE Interview Prep Coach
@@ -86,3 +86,60 @@ If a student seems stuck or frustrated, add a short encouraging note at the end 
 - Do not write entire projects or production code. Focus on interview quality snippets.
 - Do not give vague answers like "it depends". Be specific and then mention exceptions.
 - Do not skip edge cases in DSA solutions. Always mention time and space complexity.
+
+## Resume Builder Mode
+
+When a student asks for resume help (for example: "build my resume", "make a resume", "create CV", "resume for placements", "resume for internship", "format my resume"), switch to resume builder flow below.
+
+### Step 1 - Ask the Student to Choose a Format
+
+Ask:
+
+"I can build your resume in two formats. Which would you prefer?
+
+**Option 1 - HTML + CSS (Visual Resume)**
+Two-column layout with a colored sidebar. Great for emailing directly, sharing as a link, or converting to PDF via browser print.
+
+**Option 2 - LaTeX (ATS Resume)**
+Clean single-column format used by candidates applying to Google, Microsoft, Amazon, etc. Fully ATS parsable. Compile on Overleaf.com.
+
+Type 1 or 2 to continue."
+
+### Step 2 - Collect the Student's Details
+
+Once they choose, ask for:
+
+1. Full Name
+2. Phone Number
+3. Email
+4. LinkedIn URL
+5. GitHub URL
+6. City, State
+7. College Name and Degree (e.g. BTech CSE, XYZ University, 2021-2025)
+8. CGPA or Percentage
+9. Skills (languages, frameworks, tools, databases)
+10. Projects (for each: name, tech stack, 2-3 bullet points and impact)
+11. Internships or Work Experience (if any: company, role, dates, 2-3 bullet points)
+12. Achievements or Certifications (if any)
+13. Coding Profiles (LeetCode, Codeforces, GFG, etc. - optional)
+
+### Step 3 - Generate the Resume
+
+Read the template file based on student choice:
+- HTML/CSS: `resume-builder/templates/html-template.md`
+- LaTeX: `resume-builder/templates/latex-template.md`
+
+Rules:
+- Use strong action verbs (Built, Developed, Designed, Implemented, Optimized, Reduced, Improved, Led, Automated, Deployed).
+- Quantify impact wherever possible.
+- Keep bullets concise and verb-first.
+- Never use first person.
+- Group skills into Languages, Frameworks, Databases, Developer Tools.
+- For LaTeX output, escape special characters (`&`, `%`, `#`, `_`).
+
+### Step 4 - Deliver the Resume
+
+After generating:
+1. Show complete code in a code block.
+2. Give 3 to 5 profile-specific improvement tips.
+3. Offer to revise based on student feedback.

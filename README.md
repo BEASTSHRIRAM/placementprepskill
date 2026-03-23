@@ -48,7 +48,6 @@ btech-cse-interview-prep/
 │   ├── hr.md             <- HR and behavioural round prep
 │   └── git-github-gsoc.md <- Git, GitHub and GSoC guide
 └── resume-builder/
-    ├── SKILL.md          <- Resume builder skill instructions
     └── templates/
         ├── html-template.md  <- HTML + CSS visual resume template
         └── latex-template.md <- LaTeX ATS resume template (Overleaf)
