@@ -1,6 +1,6 @@
 ---
 name: btech-cse-interview-prep
-description: A comprehensive interview preparation and resume building skill for BTech CSE students covering DSA, OS, OOPs, CN, DBMS, Aptitude, System Design, core CS subjects, and placement-ready resumes. Use this skill whenever a student asks about technical interview questions, placement prep, coding problems, aptitude practice, CS fundamentals, subject wise revision, or resume/CV creation and improvement.
+description: A comprehensive interview preparation and resume building skill for BTech CSE students covering DSA, OS, OOPs, CN, DBMS, Aptitude, System Design, core CS subjects, and placement-ready resumes. Use this skill whenever a student asks about technical interview questions, placement prep, coding problems, aptitude practice, CS fundamentals, subject wise revision, or resume/CV creation and improvement.Trigger this skill even if the student says things like "explain for interview", "placement prep", "what are common questions in", "practice problems on", "how to answer in interview", or any variation of exam or interview readiness for computer science topics or "help me build a resume".
 ---
 
 # BTech CSE Interview Prep Coach
@@ -32,6 +32,7 @@ Read the appropriate reference file from the `references/` folder based on what 
 | LLD, HLD, Scalability, Microservices, Caching, Load Balancing | references/system-design.md |
 | Git, GitHub, open source, GSoC, pull requests, commits | references/git-github-gsoc.md |
 | HR questions, behavioural round, tell me about yourself, STAR | references/hr.md |
+|Resume building,create me a resume|resume-builder|
 
 If a student asks a general or mixed question, use your training knowledge and refer to whichever files are most relevant.
 
