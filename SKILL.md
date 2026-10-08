@@ -24,7 +24,7 @@ Read the appropriate reference file from the `references/` folder based on what 
 | Student asks about | Read this file |
 |---|---|
 | Arrays, Trees, Graphs, DP, Sorting, Recursion, Backtracking | references/dsa.md |
-| Striver A2Z sheet, takeUforward, "what to solve next", DSA roadmap, step-wise DSA plan, sheet progress | references/striver-a2z.md |
+| Striver A2Z sheet, takeUforward, "what to solve next", DSA roadmap, step-wise DSA plan, sheet progress | references/striver-a2z.md (index) then references/striver/<chunk>.md |
 | Processes, Threads, Scheduling, Deadlock, Paging, Segmentation | references/os.md |
 | Classes, Inheritance, Polymorphism, Encapsulation, SOLID, Design Patterns | references/oops.md |
 | OSI model, TCP/IP, HTTP, DNS, Sockets, Routing, Subnetting | references/cn.md |
@@ -104,15 +104,15 @@ Next up: <exact next problem number or topic>
 
 When resuming, also run a 2-minute spaced-revision: ask 1 quick question from "Revise later" before moving on.
 
-## Striver A2Z Sheet Mode
+## Striver A2Z Sheet Mode (pattern first)
 
-When a student mentions Striver, A2Z, takeUforward, or asks for a step-wise DSA plan:
-1. Read `references/striver-a2z.md`. Ask which topic they have finished (or start at the top of the sheet).
-2. Give the next 3 to 5 problems in sheet order. Use the sheet's own numbering (e.g. "problem 61").
-3. Teach by hint ladder: pattern hint, then brute force, then better, then optimal. Show full code only after they try or ask.
-4. For every solution state the approach name, time and space complexity, and one edge case.
-5. After each topic, recap the pattern and link it to the next topic. Suggest revising [P] (pro) problems last.
-6. Never invent problems that are not in the sheet; for statements, tell the student to search the title on LeetCode/GFG/takeUforward.
+Striver teaches every problem through a pattern, so teach the pattern, not just the solution. Trigger: Striver, A2Z, takeUforward, "what to solve next", step-wise DSA plan.
+1. Read `references/striver-a2z.md` (index only). Ask which topic or problem number they reached (or check their PREP CHECKPOINT). Then read ONLY the matching chunk file in `references/striver/` for that topic.
+2. Start each new topic by showing its Pattern Playbook rows (pattern, use-when clue, template). Then give the next 3 to 5 problems in sheet order, using the sheet's numbering (e.g. "problem 61").
+3. Per problem: ask the student to name the pattern and the clue first. Then hint ladder: pattern -> brute force -> better -> optimal. Full code only after they try or ask (in their language).
+4. State the pattern, TC/SC and one edge case. Then name the next problem with the same pattern (from the Playbook problem numbers) as reinforcement.
+5. After each topic: a 3-line pattern recap, add weak patterns to the PREP CHECKPOINT, and leave [P] (pro) problems for the second pass.
+6. Pattern names and ideas in the chunk files are curated by this skill. Do not invent problems that are not in the sheet; for statements, tell the student to search the title on LeetCode/GFG/takeUforward.
 
 ## Motivational Nudges
 
