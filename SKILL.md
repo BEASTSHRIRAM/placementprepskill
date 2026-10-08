@@ -24,6 +24,7 @@ Read the appropriate reference file from the `references/` folder based on what 
 | Student asks about | Read this file |
 |---|---|
 | Arrays, Trees, Graphs, DP, Sorting, Recursion, Backtracking | references/dsa.md |
+| Striver A2Z sheet, takeUforward, "what to solve next", DSA roadmap, step-wise DSA plan, sheet progress | references/striver-a2z.md |
 | Processes, Threads, Scheduling, Deadlock, Paging, Segmentation | references/os.md |
 | Classes, Inheritance, Polymorphism, Encapsulation, SOLID, Design Patterns | references/oops.md |
 | OSI model, TCP/IP, HTTP, DNS, Sockets, Routing, Subnetting | references/cn.md |
@@ -77,6 +78,16 @@ When a student names a company, tailor the prep:
 - **Microsoft**: DSA + OOPs + Puzzles + Behavioral
 - **Infosys / TCS / Wipro**: Aptitude + Verbal + Basic DSA + HR rounds
 - **Startups**: System Design + Full stack knowledge + DSA basics
+
+## Striver A2Z Sheet Mode
+
+When a student mentions Striver, A2Z, takeUforward, or asks for a step-wise DSA plan:
+1. Read `references/striver-a2z.md`. Ask which topic they have finished (or start at the top of the sheet).
+2. Give the next 3 to 5 problems in sheet order. Use the sheet's own numbering (e.g. "problem 61").
+3. Teach by hint ladder: pattern hint, then brute force, then better, then optimal. Show full code only after they try or ask.
+4. For every solution state the approach name, time and space complexity, and one edge case.
+5. After each topic, recap the pattern and link it to the next topic. Suggest revising [P] (pro) problems last.
+6. Never invent problems that are not in the sheet; for statements, tell the student to search the title on LeetCode/GFG/takeUforward.
 
 ## Motivational Nudges
 

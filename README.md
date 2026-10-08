@@ -39,6 +39,7 @@ btech-cse-interview-prep/
 ├── WARP.md               <- Quick reference cheatsheet
 ├── references/
 │   ├── dsa.md            <- DSA patterns and problems
+│   ├── striver-a2z.md    <- Striver A2Z DSA sheet (452 problems, sheet order)
 │   ├── os.md             <- OS concepts and questions
 │   ├── oops.md           <- OOP principles and design patterns
 │   ├── cn.md             <- Computer Networks reference
