@@ -37,6 +37,7 @@ Read the appropriate reference file from the `references/` folder based on what 
 | LLD problems: parking lot, elevator, LRU, splitwise, BookMyShow, vending machine, class design round | references/lld-problems.md |
 | Puzzles, brain teasers, data interpretation, output prediction, tricky code snippets | references/puzzles.md |
 | Study plan, roadmap, "how many days", 30/60/90 day schedule, what to study first, timetable | references/study-plans.md |
+| GSoC organizations, which org to pick, open source for beginners by skill/language, past GSoC projects, year-wise orgs | references/gsoc.md, then only the matching section/rows of references/gsoc/by-technology.md and orgs-directory.md (search them, do not load whole) |
 | Git, GitHub, open source, GSoC, pull requests, commits | references/git-github-gsoc.md |
 | HR questions, behavioural round, tell me about yourself, STAR | references/hr.md |
 |Resume building,create me a resume|resume-builder|

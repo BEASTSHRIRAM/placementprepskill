@@ -49,6 +49,8 @@ btech-cse-interview-prep/
 ├── README.md
 ├── SKILL.md              <- Core skill instructions for Claude
 ├── WARP.md               <- Quick reference cheatsheet
+├── scripts/
+│   └── build_gsoc.py     <- Refreshes references/gsoc/ from api.gsocorganizations.dev
 ├── references/
 │   ├── dsa.md            <- DSA patterns and problems
 │   ├── striver-a2z.md    <- Striver A2Z index (452 problems, routes to chunks)
@@ -60,6 +62,8 @@ btech-cse-interview-prep/
 │   ├── core-cs.md        <- COA, Compiler Design, TOC, Discrete Math
 │   ├── languages.md      <- Java, Python, C++ interview fundamentals
 │   ├── web-backend.md    <- REST, auth, SQL vs NoSQL, Docker, JS/React
+│   ├── gsoc.md           <- GSoC / open source starter guide (skill-based org picking)
+│   ├── gsoc/             <- Generated data: 509 orgs 2016-2026 by tech, year, directory
 │   ├── lld-problems.md   <- 10 classic LLD interview problems
 │   ├── puzzles.md        <- Puzzles, data interpretation, output prediction
 │   ├── study-plans.md    <- 30/60/90/180-day plans mapped to Striver ranges
