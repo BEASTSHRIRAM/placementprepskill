@@ -43,7 +43,10 @@ btech-cse-interview-prep/
 │   ├── os.md             <- OS concepts and questions
 │   ├── oops.md           <- OOP principles and design patterns
 │   ├── cn.md             <- Computer Networks reference
-│   ├── dbms.md           <- DBMS and SQL reference
+│   ├── dbms.md           <- DBMS and SQL reference + SQL practice set
+│   ├── core-cs.md        <- COA, Compiler Design, TOC, Discrete Math
+│   ├── languages.md      <- Java, Python, C++ interview fundamentals
+│   ├── web-backend.md    <- REST, auth, SQL vs NoSQL, Docker, JS/React
 │   ├── aptitude.md       <- Aptitude formulas and tricks
 │   ├── system-design.md  <- System design frameworks
 │   ├── hr.md             <- HR and behavioural round prep
