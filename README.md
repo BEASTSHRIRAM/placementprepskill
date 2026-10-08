@@ -1,4 +1,4 @@
-# BTech CSE Interview Prep Skill for Claude
+# Placement and Interview Prep Skill for Claude
 
 **Your placement-prep coach inside Claude.** DSA with Striver's A2Z sheet taught pattern by pattern, CS fundamentals, LLD, aptitude, mock interviews, resume builder, and a GSoC org finder that matches your skills. It remembers where you stopped, even across chats.
 
@@ -28,6 +28,11 @@ git clone https://github.com/BEASTSHRIRAM/placementprepskill.git ~/.claude/skill
 On Windows, clone into `%USERPROFILE%\.claude\skills\btech-cse-interview-prep`.
 
 > Use the whole folder. `SKILL.md` alone is not enough, because it loads the files in `references/` only when you ask about that topic.
+
+## How to turn it on
+
+- **Claude Code**: type the slash command `/btech-cse-interview-prep` to load it on demand. The command is the skill's folder and `name`, so keep the folder name as is. After that, just talk normally.
+- **Claude.ai**: after uploading, make sure the skill is switched on under Customize > Skills. There is no command to remember: Claude loads it automatically when you ask about interview prep, DSA, Striver, GSoC, resumes and so on. If it does not kick in, start with `Use my interview prep skill` and then your request.
 
 ## Try these prompts
 
@@ -118,7 +123,7 @@ btech-cse-interview-prep/
 
 ## Who it is for
 
-BTech CSE students preparing for placements at product companies, service companies and startups (SDE-1, Software Engineer, Graduate Engineer Trainee), and anyone starting open source or GSoC.
+Any student or fresher preparing for tech placements and interviews: BTech, BE, BCA, MCA, MSc or self-taught, in any branch. It targets product companies, service companies and startups (SDE-1, Software Engineer, Graduate Engineer Trainee), and also helps anyone starting open source or GSoC.
 
 ## Contributing
 
