@@ -14,13 +14,25 @@ Open Claude.com go in customization and click on skill and upload the zip file b
 | Database Management Systems | SQL, Normalization, Transactions, Indexing, Query Optimization |
 | Aptitude and Reasoning | Quantitative, Logical, Verbal, Puzzles |
 | System Design | LLD, HLD, Scalability, Caching, Load Balancing |
-| Core CS Fundamentals | Compiler Design, Theory of Computation, Computer Architecture |
+| Core CS Fundamentals | Compiler Design, Theory of Computation, Computer Architecture, Discrete Math |
+| Striver A2Z Sheet | All 452 problems in sheet order with the pattern, key idea and complexity for each |
+| Languages and Web | Java, Python, C++ internals; REST, auth, Docker, JS/React |
+| LLD and Puzzles | 10 classic LLD problems, 25 puzzles, data interpretation, output prediction |
+| Study Plans | 30/60/90/180-day plans, daily schedules, company-wise priorities |
 
 ## How to Use
 
-Install this skill by placing the `SKILL.md` file in your Claude skills directory. Once active, Claude will automatically detect interview prep related requests and respond with structured, exam and interview quality answers.
+Install the whole skill folder (SKILL.md plus `references/` and `resume-builder/`, zipped with the folder as the zip root) in Claude's skills settings or your Claude skills directory. SKILL.md alone is not enough, because it loads the reference files on demand. Once active, Claude will automatically detect interview prep related requests and respond with structured, exam and interview quality answers.
+
+### Studying across several days
+
+Claude does not remember previous chats. The skill prints a `PREP CHECKPOINT` block after each topic and when you say "save" or "done for today". Paste it as your first message in a new chat and say "continue" to resume exactly where you stopped. In Claude Code, it also saves the block to `prep-progress.md`.
 
 ### Example Triggers
+
+- "Continue Striver A2Z from problem 61 and teach me the pattern first"
+- "Make me a 60 day plan, I have 4 hours a day"
+- "Design a parking lot (LLD) like an interviewer would ask"
 
 - "Explain process scheduling algorithms for my OS interview"
 - "Give me 10 DSA problems on trees with solutions"
