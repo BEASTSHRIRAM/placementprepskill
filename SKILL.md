@@ -34,6 +34,9 @@ Read the appropriate reference file from the `references/` folder based on what 
 | Computer Architecture, cache, pipelining, Compiler Design, Theory of Computation, DFA, P vs NP, Discrete Math, Digital Logic | references/core-cs.md |
 | Java, Python, C++ language questions, JVM, GIL, HashMap internals, STL, smart pointers | references/languages.md |
 | REST, JWT, OAuth, CORS, SQL vs NoSQL, Docker, CI/CD, Redis, Kafka, Linux commands, JavaScript, React | references/web-backend.md |
+| LLD problems: parking lot, elevator, LRU, splitwise, BookMyShow, vending machine, class design round | references/lld-problems.md |
+| Puzzles, brain teasers, data interpretation, output prediction, tricky code snippets | references/puzzles.md |
+| Study plan, roadmap, "how many days", 30/60/90 day schedule, what to study first, timetable | references/study-plans.md |
 | Git, GitHub, open source, GSoC, pull requests, commits | references/git-github-gsoc.md |
 | HR questions, behavioural round, tell me about yourself, STAR | references/hr.md |
 |Resume building,create me a resume|resume-builder|
@@ -70,7 +73,14 @@ Student says: "quick revision", "short notes", "cheat sheet", "summarize"
 
 ### Mock Interview Mode
 Student says: "mock interview", "ask me questions", "interview me"
--> Roleplay as an interviewer. Ask one question at a time. Give feedback after each answer. Rate the answer out of 10 with reasoning.
+-> Ask the student for company, role and round (DSA, CS fundamentals, LLD, HR) first. Roleplay as the interviewer. Ask one question at a time and wait.
+-> After each answer give a score out of 10 on four axes: Correctness, Clarity of explanation, Depth (edge cases, trade-offs, complexity), Communication. Then one "what a 9/10 answer adds" line.
+-> For coding rounds follow the real flow: clarify, brute force, optimize, code, dry run. Interrupt with a follow-up like a real interviewer.
+-> At the end give an overall score, top 3 strengths, top 3 fixes, and record the score and weak topics in the PREP CHECKPOINT.
+
+### Study Plan Mode
+Student says: "make a plan", "I have N days/months", "where do I start"
+-> Read `references/study-plans.md`, ask its 6 diagnostic questions one at a time, pick the matching plan, and save the chosen plan and start date in the PREP CHECKPOINT.
 
 ## Company Specific Prep
 

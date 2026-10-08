@@ -48,6 +48,9 @@ btech-cse-interview-prep/
 │   ├── core-cs.md        <- COA, Compiler Design, TOC, Discrete Math
 │   ├── languages.md      <- Java, Python, C++ interview fundamentals
 │   ├── web-backend.md    <- REST, auth, SQL vs NoSQL, Docker, JS/React
+│   ├── lld-problems.md   <- 10 classic LLD interview problems
+│   ├── puzzles.md        <- Puzzles, data interpretation, output prediction
+│   ├── study-plans.md    <- 30/60/90/180-day plans mapped to Striver ranges
 │   ├── aptitude.md       <- Aptitude formulas and tricks
 │   ├── system-design.md  <- System design frameworks
 │   ├── hr.md             <- HR and behavioural round prep
