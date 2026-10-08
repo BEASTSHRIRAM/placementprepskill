@@ -202,3 +202,198 @@ Examples: Activity Selection, Huffman Coding, Minimum number of platforms
 | Binary Search | O(1) | O(log n) | O(log n) | O(1) |
 | BFS / DFS | O(V+E) | O(V+E) | O(V+E) | O(V) |
 | Dijkstra | O(E) | O((V+E) log V) | O((V+E) log V) | O(V) |
+
+
+---
+
+## Pattern Recognition Cheat Sheet
+
+For a step-wise full roadmap see references/striver-a2z.md
+
+| Problem clue | Technique | Typical complexity |
+|---|---|---|
+| Sorted array / search space | Binary search | O(log n) |
+| Pair/triplet with target in sorted array | Two pointers | O(n) / O(n^2) |
+| Subarray/substring with size or condition | Sliding window | O(n) |
+| Subarray with sum K (negatives allowed) | Prefix sum + hashmap | O(n) |
+| Cycle in list, middle of list | Fast/slow pointers | O(n), O(1) space |
+| k-th largest / top K / stream median | Heap | O(n log k) |
+| Next greater/smaller, histogram | Monotonic stack | O(n) |
+| Shortest path, unweighted | BFS | O(V+E) |
+| Shortest path, weighted non-negative | Dijkstra | O((V+E) log V) |
+| Dependencies / ordering of tasks | Topological sort | O(V+E) |
+| Connected components, dynamic connectivity | Union-Find / DFS | ~O(alpha(n)) per op |
+| All combinations / permutations / subsets | Backtracking | O(2^n) / O(n!) |
+| Minimum/maximum/count with choices, overlapping subproblems | Dynamic programming | O(n*m) typical |
+| Locally best choice is provably safe | Greedy (often sort first) | O(n log n) |
+| "Minimum X such that feasible" | Binary search on answer | O(n log range) |
+| Overlapping ranges | Sort by start + merge | O(n log n) |
+| Array of 1..n, find missing/duplicate | Cyclic sort / XOR | O(n), O(1) space |
+| Prefix matching, dictionary of words | Trie | O(L) per op |
+| Range query with updates | Segment tree / Fenwick | O(log n) |
+| Substring search | KMP / Z / Rabin-Karp | O(n+m) |
+
+---
+
+## Missing Patterns
+
+### Two Pointers
+Sorted array pair sum; also partitioning and removing duplicates in place.
+```python
+l, r = 0, len(a) - 1
+while l < r:
+    s = a[l] + a[r]
+    if s == target: return [l, r]
+    if s < target: l += 1
+    else: r -= 1
+```
+
+### Fast/Slow Pointers
+Cycle detection, middle node, cycle start (reset one pointer to head, move both by 1).
+```python
+slow = fast = head
+while fast and fast.next:
+    slow, fast = slow.next, fast.next.next
+    if slow is fast: return True
+return False
+```
+
+### Prefix Sum + HashMap
+Count subarrays with sum K: seen[prefix - K] gives number of valid starts.
+```python
+seen = {0: 1}; pre = ans = 0
+for x in a:
+    pre += x
+    ans += seen.get(pre - k, 0)
+    seen[pre] = seen.get(pre, 0) + 1
+```
+
+### Monotonic Stack
+Next greater element: stack holds indices with decreasing values.
+```python
+res = [-1] * len(a); st = []
+for i, x in enumerate(a):
+    while st and a[st[-1]] < x:
+        res[st.pop()] = x
+    st.append(i)
+```
+
+### Bit Manipulation Tricks
+- n & (n-1) clears lowest set bit; n & (n-1) == 0 (n > 0) means power of two
+- n & -n isolates lowest set bit; (n >> i) & 1 tests bit i
+- XOR: a^a = 0, a^0 = a, commutative. XOR of all elements finds the single non-duplicate.
+- Swap without temp: a ^= b; b ^= a; a ^= b
+- Subsets via mask: for mask in range(1 << n)
+```python
+def count_bits(n):
+    c = 0
+    while n:
+        n &= n - 1
+        c += 1
+    return c
+```
+
+### Union-Find (Path Compression + Union by Size)
+```python
+def find(x):
+    while parent[x] != x:
+        parent[x] = parent[parent[x]]
+        x = parent[x]
+    return x
+def union(a, b):
+    a, b = find(a), find(b)
+    if a == b: return False
+    if size[a] < size[b]: a, b = b, a
+    parent[b] = a; size[a] += size[b]
+    return True
+```
+
+### Topological Sort (Kahn's)
+Result shorter than V means a cycle exists.
+```python
+indeg = [0] * n
+for u in range(n):
+    for v in g[u]: indeg[v] += 1
+q = deque(i for i in range(n) if indeg[i] == 0); order = []
+while q:
+    u = q.popleft(); order.append(u)
+    for v in g[u]:
+        indeg[v] -= 1
+        if indeg[v] == 0: q.append(v)
+```
+
+### Segment Tree / Fenwick Tree (Overview)
+- Segment tree: range query (sum/min/max) and point or range update, O(log n), O(4n) space.
+- Fenwick (BIT): prefix sums with point updates, smaller and simpler, O(log n).
+```python
+def update(i, d):          # 1-indexed
+    while i <= n: bit[i] += d; i += i & -i
+def query(i):              # sum of [1..i]
+    s = 0
+    while i > 0: s += bit[i]; i -= i & -i
+    return s
+```
+
+### String Matching: KMP / Z / Rabin-Karp (Overview)
+- KMP: build LPS (longest proper prefix that is also suffix) array, never move back in text. O(n+m).
+- Z-algorithm: z[i] = longest match of s[i:] with prefix of s. Search pattern + "$" + text. O(n+m).
+- Rabin-Karp: rolling hash of window, compare hash then verify. Average O(n+m), worst O(nm). Good for multi-pattern.
+
+### Binary Search on Answer
+Use when feasibility is monotonic (Koko bananas, ship packages, split array).
+```python
+lo, hi = min_possible, max_possible
+while lo < hi:
+    mid = (lo + hi) // 2
+    if feasible(mid): hi = mid
+    else: lo = mid + 1
+return lo
+```
+
+### Intervals
+Sort by start, then merge or sweep. For meeting rooms use a min-heap of end times.
+```python
+intervals.sort(); out = [intervals[0]]
+for s, e in intervals[1:]:
+    if s <= out[-1][1]: out[-1][1] = max(out[-1][1], e)
+    else: out.append([s, e])
+```
+
+### Cyclic Sort
+For values in 1..n: place each value at index value-1. O(n) time, O(1) space. Finds missing/duplicate numbers.
+```python
+i = 0
+while i < len(a):
+    j = a[i] - 1
+    if a[i] != a[j]: a[i], a[j] = a[j], a[i]
+    else: i += 1
+```
+
+---
+
+## How to Approach a Coding Interview
+
+1. **Clarify**: restate the problem; ask about input size, duplicates, negatives, empty input, sorted or not, expected output. Say: "Let me confirm I understand. Can the array be empty? What are the constraints on n?"
+2. **Examples and edge cases**: walk through a small example, then edge cases (empty, single element, all same, max size). Say: "Let me try an example, and I will note edge cases as I go."
+3. **Brute force first**: state the obvious solution and its complexity. Say: "The brute force is O(n^2) by checking all pairs. Let me see if we can do better."
+4. **Optimize**: name the bottleneck and match a pattern (see cheat sheet above). Say: "The repeated work is the lookup, so a hashmap makes it O(1) at the cost of O(n) space."
+5. **Code**: confirm the approach with the interviewer, then write clean code with meaningful names, narrating key lines. Say: "I will use left and right pointers; left moves when the window is invalid."
+6. **Test and analyze**: dry-run the code on the example and an edge case, fix bugs, then state time and space complexity and possible improvements. Say: "Tracing [2,7,11] with target 9 returns [0,1]. Time O(n), space O(n)."
+
+Tips: think aloud, never go silent for more than a minute, ask for a hint rather than freezing.
+
+---
+
+## Constraint to Complexity
+
+| Constraint on n | Target complexity | Typical approach |
+|---|---|---|
+| n <= 10 | O(n!) | Permutations, brute-force backtracking |
+| n <= 20 | O(2^n) | Subsets, bitmask DP, meet in the middle |
+| n <= 500 | O(n^3) | Floyd-Warshall, 3D/interval DP |
+| n <= 10^4 | O(n^2) | 2D DP, nested loops |
+| n <= 10^6 | O(n log n) | Sorting, heap, binary search, segment tree |
+| n <= 10^8 | O(n) | Single pass, two pointers, hashing |
+| n > 10^8 | O(log n) or O(1) | Binary search, math formula |
+
+Rule of thumb: about 10^8 simple operations per second.
