@@ -23,15 +23,15 @@
 
 **Claude Code (terminal)**
 ```bash
-git clone https://github.com/BEASTSHRIRAM/placementprepskill.git ~/.claude/skills/btech-cse-interview-prep
+git clone https://github.com/BEASTSHRIRAM/placementprepskill.git ~/.claude/skills/placement-prep
 ```
-On Windows, clone into `%USERPROFILE%\.claude\skills\btech-cse-interview-prep`.
+On Windows, clone into `%USERPROFILE%\.claude\skills\placement-prep`.
 
 > Use the whole folder. `SKILL.md` alone is not enough, because it loads the files in `references/` only when you ask about that topic.
 
 ## How to turn it on
 
-- **Claude Code**: type the slash command `/btech-cse-interview-prep` to load it on demand. The command is the skill's folder and `name`, so keep the folder name as is. After that, just talk normally.
+- **Claude Code**: type the slash command `/placement-prep` to load it on demand. The command is the skill's folder and `name`, so keep the folder name as is. After that, just talk normally.
 - **Claude.ai**: after uploading, make sure the skill is switched on under Customize > Skills. There is no command to remember: Claude loads it automatically when you ask about interview prep, DSA, Striver, GSoC, resumes and so on. If it does not kick in, start with `Use my interview prep skill` and then your request.
 
 ## Try these prompts
@@ -87,7 +87,7 @@ Next up: problem 137
 ## Repository layout
 
 ```
-btech-cse-interview-prep/
+placement-prep/
 ├── SKILL.md              <- Core instructions and routing for Claude
 ├── WARP.md               <- 5-minute revision cheat sheet
 ├── CLAUDE.md             <- Rules for contributors using Claude Code

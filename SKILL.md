@@ -1,5 +1,5 @@
 ---
-name: btech-cse-interview-prep
+name: placement-prep
 description: A comprehensive interview preparation and resume building skill for BTech CSE students covering DSA, OS, OOPs, CN, DBMS, Aptitude, System Design, core CS subjects, and placement-ready resumes. Use this skill whenever a student asks about technical interview questions, placement prep, coding problems, aptitude practice, CS fundamentals, subject wise revision, or resume/CV creation and improvement.Trigger this skill even if the student says things like "explain for interview", "placement prep", "what are common questions in", "practice problems on", "how to answer in interview", or any variation of exam or interview readiness for computer science topics , "Striver A2Z sheet", "takeUforward", "DSA roadmap", Java/Python/C++ interview questions, or "help me build a resume".
 ---
 

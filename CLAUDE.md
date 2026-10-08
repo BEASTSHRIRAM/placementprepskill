@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-Project: `btech-cse-interview-prep`, a Claude skill (SKILL.md + references/*.md) for BTech CSE placement prep. Content is markdown only; there is no build or test step.
+Project: `placement-prep`, a Claude skill (SKILL.md + references/*.md) for BTech CSE placement prep. Content is markdown only; there is no build or test step.
 
 ## Model roles: Opus orchestrates, Sonnet codes
 
