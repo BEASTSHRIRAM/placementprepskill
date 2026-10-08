@@ -1,89 +1,131 @@
-# Claude Interview Prep Skill
+# BTech CSE Interview Prep Skill for Claude
 
-A comprehensive Claude skill designed for final-year and pre-placement BTech Computer Science students. This skill equips Claude to act as a dedicated interview preparation coach covering every subject and aptitude area that top tech companies test.
+**Your placement-prep coach inside Claude.** DSA with Striver's A2Z sheet taught pattern by pattern, CS fundamentals, LLD, aptitude, mock interviews, resume builder, and a GSoC org finder that matches your skills. It remembers where you stopped, even across chats.
 
-Open Claude.com go in customization and click on skill and upload the zip file by downloading it from here 
-## What This Skill Covers
+> If this helps you, **star the repo** so other students can find it.
 
-| Subject | Topics |
+---
+
+## Why students use it
+
+- **Stuck on "what do I solve next?"** Say "continue Striver A2Z" and it picks the next problems, teaches the pattern first, then gives hints before the answer.
+- **Studying for days, not hours?** It prints a `PREP CHECKPOINT`. Paste it into a new chat and you resume exactly where you left off.
+- **Interview in two weeks?** Tell it your days and hours, and it builds a 30/60/90/180-day plan.
+- **Want an honest interviewer?** Mock interviews are scored out of 10 on correctness, clarity, depth and communication.
+- **Starting open source?** Tell it your language and interests, and it shortlists GSoC organizations from real 2016-2026 data.
+
+## Get started in 2 minutes
+
+**Claude.ai (web / desktop)**
+1. Click **Code > Download ZIP** on this page.
+2. In Claude, open **Customize > Skills** (or Settings > Capabilities > Skills) and upload the ZIP.
+3. Start a new chat and type: `I have 60 days for placements, make me a plan`.
+
+**Claude Code (terminal)**
+```bash
+git clone https://github.com/BEASTSHRIRAM/placementprepskill.git ~/.claude/skills/btech-cse-interview-prep
+```
+On Windows, clone into `%USERPROFILE%\.claude\skills\btech-cse-interview-prep`.
+
+> Use the whole folder. `SKILL.md` alone is not enough, because it loads the files in `references/` only when you ask about that topic.
+
+## Try these prompts
+
+| You type | What happens |
 |---|---|
-| Data Structures and Algorithms | Arrays, Linked Lists, Trees, Graphs, DP, Sorting, Searching |
-| Operating Systems | Processes, Threads, Memory Management, Scheduling, Deadlocks |
-| Object Oriented Programming | Classes, Inheritance, Polymorphism, Abstraction, Design Patterns |
-| Computer Networks | OSI Model, TCP/IP, HTTP, DNS, Routing, Socket Programming |
-| Database Management Systems | SQL, Normalization, Transactions, Indexing, Query Optimization |
-| Aptitude and Reasoning | Quantitative, Logical, Verbal, Puzzles |
-| System Design | LLD, HLD, Scalability, Caching, Load Balancing |
-| Core CS Fundamentals | Compiler Design, Theory of Computation, Computer Architecture, Discrete Math |
-| Striver A2Z Sheet | All 452 problems in sheet order with the pattern, key idea and complexity for each |
-| Languages and Web | Java, Python, C++ internals; REST, auth, Docker, JS/React |
-| LLD and Puzzles | 10 classic LLD problems, 25 puzzles, data interpretation, output prediction |
-| Study Plans | 30/60/90/180-day plans, daily schedules, company-wise priorities |
+| `Continue Striver A2Z from problem 61` | Next 3-5 problems, pattern first, hint ladder, complexity |
+| `Make me a 60 day plan, 4 hours a day` | Asks 6 quick questions, then a week-by-week plan |
+| `Mock interview me for Amazon SDE-1` | One question at a time, scored out of 10 |
+| `Explain deadlock like an interview answer` | Definition, mechanism, example, follow-ups |
+| `Design a parking lot` | LLD round: classes, patterns, code skeleton, follow-ups |
+| `I know Python and a bit of ML, which GSoC orgs?` | Shortlist of orgs from 2016-2026 data, plus a first-PR roadmap |
+| `Build my resume` | Choose HTML or LaTeX (ATS) and get a ready resume |
+| `Quick revision of OS` | Compact cheat sheet from `WARP.md` |
+| `save` or `done for today` | Prints your PREP CHECKPOINT to paste next time |
 
-## How to Use
+## What is inside
 
-Install the whole skill folder (SKILL.md plus `references/` and `resume-builder/`, zipped with the folder as the zip root) in Claude's skills settings or your Claude skills directory. SKILL.md alone is not enough, because it loads the reference files on demand. Once active, Claude will automatically detect interview prep related requests and respond with structured, exam and interview quality answers.
+| Area | What you get |
+|---|---|
+| **Striver A2Z sheet** | All **452** problems in sheet order, each with a **pattern**, key idea and TC/SC, plus a Pattern Playbook for every topic |
+| **DSA** | Data structures, patterns, a pattern-recognition cheat sheet, constraint-to-complexity table, 50 must-solve problems |
+| **Operating Systems** | Scheduling, sync, deadlock, memory, plus worked numeric examples (Banker's, page replacement, disk scheduling) |
+| **Computer Networks** | OSI, TCP/UDP, DNS, HTTP, plus subnetting and handshake worked examples |
+| **DBMS and SQL** | Normalization, transactions, indexing, and a 12-query SQL practice set |
+| **OOPs and design** | Four pillars, SOLID, design patterns, advanced Q bank |
+| **LLD and system design** | 10 classic LLD problems, HLD concepts, 9+ case studies |
+| **Core CS** | Computer architecture, compilers, theory of computation, discrete math |
+| **Languages and web** | Java, Python, C++ internals; REST, auth, Docker, JS/React |
+| **Aptitude and puzzles** | Quant, reasoning, verbal, 25 puzzles, data interpretation, tricky code snippets |
+| **HR and resume** | STAR stories, common questions, resume builder (HTML or LaTeX/ATS) |
+| **GSoC and open source** | Guide plus **509 organizations** (2016-2026) by technology, year and directory |
+| **Study plans** | 30/60/90/180-day plans mapped to Striver problem ranges |
 
-### Studying across several days
+## Studying across several days
 
-Claude does not remember previous chats. The skill prints a `PREP CHECKPOINT` block after each topic and when you say "save" or "done for today". Paste it as your first message in a new chat and say "continue" to resume exactly where you stopped. In Claude Code, it also saves the block to `prep-progress.md`.
+Claude does not remember previous chats. This skill works around it:
 
-### Example Triggers
+1. After each topic, and when you say "save" or "done for today", Claude prints a block like this:
 
-- "Continue Striver A2Z from problem 61 and teach me the pattern first"
-- "Make me a 60 day plan, I have 4 hours a day"
-- "Design a parking lot (LLD) like an interviewer would ask"
+```
+PREP CHECKPOINT (updated 2026-10-08)
+Goal: SDE-1 at product companies, Jan 2027   Level: intermediate   Language: Java
+Striver A2Z: done 1-104, 105-136; current topic Strings (id 17176); weak patterns: sliding window
+Revise later: 111, 119, 133
+Mocks: 1 (6/10, needs to state complexity earlier)
+Next up: problem 137
+```
 
-- "Explain process scheduling algorithms for my OS interview"
-- "Give me 10 DSA problems on trees with solutions"
-- "What DBMS questions are asked in Amazon interviews?"
-- "Practice aptitude questions on time and work"
-- "Explain the four pillars of OOPs with code"
-- "How does TCP handshake work? Interview style answer"
+2. Copy it and paste it as your **first message** in the next chat, then say `continue`.
+3. In Claude Code, the same block is also saved to `prep-progress.md` automatically.
 
-## Skill Structure
+## Repository layout
 
 ```
 btech-cse-interview-prep/
-├── LICENSE
-├── README.md
-├── SKILL.md              <- Core skill instructions for Claude
-├── WARP.md               <- Quick reference cheatsheet
+├── SKILL.md              <- Core instructions and routing for Claude
+├── WARP.md               <- 5-minute revision cheat sheet
+├── CLAUDE.md             <- Rules for contributors using Claude Code
+├── CONTRIBUTING.md       <- How to contribute
 ├── scripts/
 │   └── build_gsoc.py     <- Refreshes references/gsoc/ from api.gsocorganizations.dev
 ├── references/
 │   ├── dsa.md            <- DSA patterns and problems
 │   ├── striver-a2z.md    <- Striver A2Z index (452 problems, routes to chunks)
 │   ├── striver/          <- 5 chunk files: per-problem pattern, idea, complexity + Pattern Playbook
-│   ├── os.md             <- OS concepts and questions
-│   ├── oops.md           <- OOP principles and design patterns
-│   ├── cn.md             <- Computer Networks reference
-│   ├── dbms.md           <- DBMS and SQL reference + SQL practice set
+│   ├── os.md, cn.md, dbms.md, oops.md   <- CS subjects with Q banks
 │   ├── core-cs.md        <- COA, Compiler Design, TOC, Discrete Math
 │   ├── languages.md      <- Java, Python, C++ interview fundamentals
 │   ├── web-backend.md    <- REST, auth, SQL vs NoSQL, Docker, JS/React
-│   ├── gsoc.md           <- GSoC / open source starter guide (skill-based org picking)
-│   ├── gsoc/             <- Generated data: 509 orgs 2016-2026 by tech, year, directory
+│   ├── system-design.md  <- HLD frameworks and case studies
 │   ├── lld-problems.md   <- 10 classic LLD interview problems
-│   ├── puzzles.md        <- Puzzles, data interpretation, output prediction
-│   ├── study-plans.md    <- 30/60/90/180-day plans mapped to Striver ranges
 │   ├── aptitude.md       <- Aptitude formulas and tricks
-│   ├── system-design.md  <- System design frameworks
+│   ├── puzzles.md        <- Puzzles, data interpretation, output prediction
 │   ├── hr.md             <- HR and behavioural round prep
-│   └── git-github-gsoc.md <- Git, GitHub and GSoC guide
+│   ├── study-plans.md    <- 30/60/90/180-day plans
+│   ├── git-github-gsoc.md <- Git, GitHub and GSoC basics
+│   ├── gsoc.md           <- GSoC starter guide (skill-based org picking)
+│   └── gsoc/             <- Generated data: directory, by technology, by year
 └── resume-builder/
-    └── templates/
-        ├── html-template.md  <- HTML + CSS visual resume template
-        └── latex-template.md <- LaTeX ATS resume template (Overleaf)
+    └── templates/        <- HTML+CSS and LaTeX (Overleaf) resume templates
 ```
 
-## Target Audience
+## Data sources and honesty notes
 
-BTech CSE students preparing for placements at product companies (FAANG, startups, service based companies), targeting roles like SDE 1, Software Engineer, and Graduate Engineer Trainee.
+- The problem list and order of the **Striver A2Z sheet** come from takeUforward's public sheet page. The **pattern names, key ideas and complexities** were written for this skill and are not Striver's official tags, so check them against the videos if they differ. This project is not affiliated with takeUforward.
+- **GSoC data** comes from [gsocorganizations.dev](https://www.gsocorganizations.dev/) (`api.gsocorganizations.dev`). It is a snapshot: confirm the current year's accepted organizations and dates on the official GSoC site. Refresh it with `python -I scripts/build_gsoc.py`.
+- Content was drafted with AI assistance and checked, but errors are possible. If you find one, please open an issue or a PR.
+
+## Who it is for
+
+BTech CSE students preparing for placements at product companies, service companies and startups (SDE-1, Software Engineer, Graduate Engineer Trainee), and anyone starting open source or GSoC.
 
 ## Contributing
 
-Pull requests are welcome. Please keep content accurate, concise, and interview focused.
+Found a mistake, want a new company question bank or a topic added? Read [CONTRIBUTING.md](CONTRIBUTING.md) and open a PR. Small fixes are very welcome.
 
-## Thank You
-A star would be appreciated if you get help from this.
+## Support
+
+If this helped you land an interview or an offer, **star the repo** and share it with your batch.
+
+Licensed under the MIT License.
