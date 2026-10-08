@@ -164,3 +164,105 @@ WHERE department_id IN (SELECT id FROM departments WHERE name = 'Engineering');
 13. Explain the difference between optimistic and pessimistic locking.
 14. What is a cursor in SQL?
 15. What is the N+1 query problem and how do you avoid it?
+
+
+---
+
+## SQL Practice Set
+
+Schema (used by all queries below):
+```sql
+Department(id INT PK, name VARCHAR)
+Employee(id INT PK, name VARCHAR, salary INT, email VARCHAR, manager_id INT NULL, dept_id INT FK -> Department.id)
+```
+
+**1. Second highest salary** (returns NULL if none)
+```sql
+SELECT (SELECT DISTINCT salary FROM Employee ORDER BY salary DESC LIMIT 1 OFFSET 1) AS second_highest;
+```
+
+**2. Nth highest salary** (n = 3 here; DENSE_RANK handles ties)
+```sql
+SELECT DISTINCT salary FROM (
+    SELECT salary, DENSE_RANK() OVER (ORDER BY salary DESC) AS rnk FROM Employee
+) t WHERE rnk = 3;
+```
+
+**3. Find duplicates** (by email)
+```sql
+SELECT email, COUNT(*) AS cnt FROM Employee GROUP BY email HAVING COUNT(*) > 1;
+```
+
+**4. Delete duplicates** (keep lowest id)
+```sql
+DELETE e1 FROM Employee e1
+JOIN Employee e2 ON e1.email = e2.email AND e1.id > e2.id;   -- MySQL
+-- Standard SQL (e.g. PostgreSQL):
+-- DELETE FROM Employee WHERE id NOT IN (SELECT MIN(id) FROM Employee GROUP BY email);
+-- MySQL rejects that form unless the subquery is wrapped in a derived table.
+```
+
+**5. Employees earning more than their manager**
+```sql
+SELECT e.name FROM Employee e JOIN Employee m ON e.manager_id = m.id WHERE e.salary > m.salary;
+```
+
+**6. Department-wise max salary** (with department name)
+```sql
+SELECT d.name, MAX(e.salary) AS max_salary
+FROM Department d JOIN Employee e ON e.dept_id = d.id GROUP BY d.id, d.name;
+```
+
+**7. Top N per group** (top 3 salaries per department)
+```sql
+SELECT * FROM (
+    SELECT e.name, e.dept_id, e.salary,
+           DENSE_RANK() OVER (PARTITION BY e.dept_id ORDER BY e.salary DESC) AS rnk
+    FROM Employee e
+) t WHERE rnk <= 3;
+```
+- ROW_NUMBER: unique 1,2,3,4 (ties broken arbitrarily). RANK: 1,1,3,4 (gaps). DENSE_RANK: 1,1,2,3 (no gaps).
+
+**8. Running total**
+```sql
+SELECT name, salary, SUM(salary) OVER (ORDER BY id) AS running_total FROM Employee;
+```
+
+**9. JOIN types demo**
+```sql
+SELECT e.name, d.name FROM Employee e INNER JOIN Department d ON e.dept_id = d.id;   -- matches only
+SELECT e.name, d.name FROM Employee e LEFT JOIN Department d ON e.dept_id = d.id;    -- all employees
+SELECT e.name, d.name FROM Employee e RIGHT JOIN Department d ON e.dept_id = d.id;   -- all departments
+SELECT e.name, d.name FROM Employee e LEFT JOIN Department d ON e.dept_id = d.id
+UNION
+SELECT e.name, d.name FROM Employee e RIGHT JOIN Department d ON e.dept_id = d.id;   -- FULL OUTER (MySQL)
+SELECT e.name, d.name FROM Employee e CROSS JOIN Department d;                       -- cartesian product
+```
+- Departments with no employees: LEFT JOIN from Department and filter `WHERE e.id IS NULL`.
+
+**10. GROUP BY vs HAVING**
+```sql
+SELECT dept_id, COUNT(*) AS cnt FROM Employee
+WHERE salary > 30000          -- WHERE filters rows before grouping
+GROUP BY dept_id
+HAVING COUNT(*) > 5;          -- HAVING filters groups after aggregation
+```
+
+**11. EXISTS vs IN**
+```sql
+SELECT name FROM Department d WHERE EXISTS (SELECT 1 FROM Employee e WHERE e.dept_id = d.id);
+SELECT name FROM Department WHERE id IN (SELECT dept_id FROM Employee);
+```
+- EXISTS stops at first match and is NULL-safe; usually better for large inner tables. NOT IN returns no rows if the subquery contains NULL, so prefer NOT EXISTS.
+
+**12. Self join and LEAD/LAG**
+```sql
+-- Self join: pairs in same department
+SELECT a.name, b.name FROM Employee a JOIN Employee b ON a.dept_id = b.dept_id AND a.id < b.id;
+
+-- LAG/LEAD: compare each salary with previous/next in department
+SELECT name, salary,
+       LAG(salary, 1)  OVER (PARTITION BY dept_id ORDER BY salary) AS prev_salary,
+       LEAD(salary, 1) OVER (PARTITION BY dept_id ORDER BY salary) AS next_salary
+FROM Employee;
+```
